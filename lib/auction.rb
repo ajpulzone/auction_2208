@@ -45,6 +45,32 @@ class Auction
     bids.flatten.map do |attendee|
       bidder_names << attendee.name
     end
-    bidder_names.uniq 
+    bidder_names.uniq
   end
+
+  def close_bidding
+  end
+
+  def bidder_info
+    attendee_hash = Hash.new(0)
+    bids = []
+    unique_bidders = []
+    items.each do |item|
+      if item.bids.empty? == false
+        bids << item.bids.keys
+      end
+    end
+    unique_bidders = bids.flatten.uniq
+    unique_bidders.each do |attendee|
+      attendee_hash[attendee] = {:budget => (attendee.budget), :items => []}
+    end
+    attendee_hash
+    items.each do |item|
+      attendee_hash.each do |attendee, info|
+        info.each do |keys, values|
+      require "pry";binding.pry
+    end
+end
+end
+end
 end

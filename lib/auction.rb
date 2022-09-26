@@ -34,4 +34,17 @@ class Auction
       potential_revenue.sum
   end
 
+  def bidders
+    bids = []
+    bidder_names = []
+    items.each do |item|
+      if item.bids.empty? == false
+        bids << item.bids.keys
+      end
+    end
+    bids.flatten.map do |attendee|
+      bidder_names << attendee.name
+    end
+    bidder_names.uniq 
+  end
 end

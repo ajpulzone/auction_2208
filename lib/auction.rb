@@ -67,10 +67,12 @@ class Auction
     attendee_hash
     items.each do |item|
       attendee_hash.each do |attendee, info|
-        info.each do |keys, values|
-      require "pry";binding.pry
+        if item.bids.include?(attendee)
+        info[:items] = item
+        #not getting the return value I want yet, but ran out of time
+        end
+      end
     end
-end
-end
-end
+    attendee_hash
+  end
 end

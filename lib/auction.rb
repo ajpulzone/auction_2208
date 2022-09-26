@@ -12,6 +12,16 @@ class Auction
   def item_names
     @items.map do |item|
       item.name
-    end 
+    end
+  end
+
+  def unpopular_items
+    unpopular_items = []
+    items.map do |item|
+      if item.bids.empty? == true
+        unpopular_items << item
+      end
+    end
+    unpopular_items
   end
 end

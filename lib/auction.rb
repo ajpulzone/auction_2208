@@ -24,4 +24,14 @@ class Auction
     end
     unpopular_items
   end
+
+  def potential_revenue
+    potential_revenue = []
+    items.each do |item|
+      potential_revenue << item.current_high_bid
+      potential_revenue.delete(nil)
+    end
+      potential_revenue.sum
+  end
+
 end
